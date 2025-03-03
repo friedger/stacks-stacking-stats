@@ -1,0 +1,66 @@
+{
+  "name": "stacks-stacking-stats",
+  "version": "0.0.1",
+  "description": "Stats about Stacking Data",
+  "author": "Friedger Müffke",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/friedger/stacks-stacking-stats.git"
+  },
+  "engines": {
+    "node": "22",
+    "pnpm": "10"
+  },
+  "dependencies": {
+    "@stacks/blockchain-api-client": "8.7.0",
+    "@stacks/common": "^7.0.2",
+    "@stacks/encryption": "^7.0.4",
+    "@stacks/network": "^7.0.2",
+    "@stacks/stacking": "7.0.4",
+    "@stacks/transactions": "7.0.4",
+    "@types/node": "^22.13.8",
+    "caniuse-lite": "^1.0.30001588",
+    "dotenv": "^16.4.7",
+    "eslint-config-react-app": "7.0.1",
+    "pg": "^8.13.3",
+    "typescript": "5.4.5"
+  },
+  "prettier": "@stacks/prettier-config",
+  "scripts": {
+    "generate": "tsx ./scripts/generate-cycle-data.ts",
+    "check:types": "tsc",
+    "check:format": "prettier --check . --plugin-search-dir=./node_modules --plugin=@trivago/prettier-plugin-sort-imports",
+    "check:format:fix": "prettier --write . --plugin-search-dir=./node_modules --plugin=@trivago/prettier-plugin-sort-imports",
+    "check:lint": "eslint .",
+    "check:lint:fix": "eslint . --fix",
+    "check:all": "pnpm check:types && pnpm check:format && pnpm check:lint"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "chrome >= 67",
+      "edge >= 79",
+      "firefox >= 68",
+      "opera >= 54",
+      "safari >= 14"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@stacks/prettier-config": "0.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
+    "prettier": "3.5.3",
+    "tsx": "^4.19.3"
+  }
+}
