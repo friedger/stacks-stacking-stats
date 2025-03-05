@@ -62,9 +62,12 @@ const cycleData = async (cycle: number) => {
 };
 
 (async () => {
-  for (let i = 104; i <= 104; i++) {
+  const all = [];
+  for (let i = 89; i <= 104; i++) {
     const r = await cycleData(i);
     console.log(r);
     writeFileSync(`data/cycle-${i}.json`, JSON.stringify(r, null, 2));
+    all.push(r);
   }
+  writeFileSync('data/all.json', JSON.stringify(all, null, 2));
 })();
