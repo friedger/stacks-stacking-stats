@@ -39,6 +39,7 @@ const cycleData = async (cycle: number) => {
     Number(totalStacked),
     stacksCycleEnd.height - 1 || stacksCycleStart.height + 1
   );
+  const blockRewardsUsd = 2100 * 1000 * priceAtEnd.stxPrice.usd;
   return {
     cycle,
     cycleStart,
@@ -54,6 +55,7 @@ const cycleData = async (cycle: number) => {
     fastPoolV2,
     totalStacked,
     rewardsUsd,
+    blockRewardsUsd,
     stackedUsd,
     cycleYield,
     apy,
