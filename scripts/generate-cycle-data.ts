@@ -5,7 +5,7 @@ import {
   getStacksBlockHeight,
   getThresholdFromParticipation,
 } from './utils/stacks-node';
-import { writeFileSync } from 'fs';
+import { read, readFileSync, writeFileSync } from 'fs';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -63,13 +63,27 @@ const cycleData = async (cycle: number) => {
   };
 };
 
-(async () => {
+const fetchData = async () => {
   const all = [];
-  for (let i = 89; i <= 104; i++) {
+  for (let i = 106; i <= 106; i++) {
     const r = await cycleData(i);
     console.log(r);
     writeFileSync(`data/cycle-${i}.json`, JSON.stringify(r, null, 2));
     all.push(r);
   }
   writeFileSync('data/all.json', JSON.stringify(all, null, 2));
-})();
+};
+
+const logData = async () => {
+  const all = JSON.parse(readFileSync('data/all.json').toString());
+  for (let i = 1; i < all.length; i++) {
+    const dollarAtStart = 1e3;
+    const stxAtStart = dollarAtStart / all[i - 1].stxPriceAtEnd;
+    const dollarAtEnd = stxAtStart * (all[i].cycleYield + 1) * all[i].stxPriceAtEnd;
+    const dollarYield = (dollarAtEnd / dollarAtStart) ** 26 - 1;
+    console.log(dollarAtEnd, dollarYield);
+  }
+};
+
+fetchData();
+//logData();

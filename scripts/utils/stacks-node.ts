@@ -8,9 +8,8 @@ import {
   UIntCV,
   uintCV,
 } from '@stacks/transactions';
-import { bytesToHex } from '@stacks/common';
 
-const baseUrl = 'http://192.168.129.114:3999';
+const baseUrl = 'https://api.hiro.so';
 const client = createClient({ baseUrl });
 
 const getBlockByBurnBlockHeight = async (bitcoinBlockHeight: number) => {
@@ -66,6 +65,7 @@ export const getThresholdFromParticipation = async (
   const poxInfo = hexToCV(poxResponse.result) as ResponseOkCV<
     TupleCV<{ 'total-liquid-supply-ustx': UIntCV }>
   >;
+  console.log(cvToString(poxInfo));
   const liquidUstx = Number(poxInfo.value.value['total-liquid-supply-ustx'].value);
   const thresholdResponse = await fetch(
     `${baseUrl}/v2/contracts/call-read/SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9/pox3-info-helper-v2/get-threshold-from-participation`,
