@@ -1,0 +1,21 @@
+{
+  "cycle": 87,
+  "cycleStart": 848750,
+  "cycleRewardsEnd": 850750,
+  "stacksCycleStart": 154648,
+  "stacksCycleRewardsEnd": 156452,
+  "cycleStartDate": "2024-06-20T12:14:52.000Z",
+  "cycleRewardsEndDate": "2024-07-05T03:07:50.000Z",
+  "stxPriceAtEnd": 1.389960946689235,
+  "btcPriceAtEnd": 57189.17412408636,
+  "btcRewards": 38.963975,
+  "fastPoolV1": 3.582525,
+  "fastPoolV2": 0,
+  "totalStacked": "364054906918457",
+  "rewardsUsd": 2228317.550841548,
+  "blockRewardsUsd": 2918917.9880473935,
+  "stackedUsd": 506022103.0672399,
+  "cycleYield": 0.004403597268448668,
+  "apy": 0.12102357581033596,
+  "threshold": 90000000000
+}
