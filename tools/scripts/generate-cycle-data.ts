@@ -65,7 +65,7 @@ const cycleData = async (cycle: number) => {
 
 const fetchData = async () => {
   const all = [];
-  for (let i = 86; i <= 107; i++) {
+  for (let i = 86; i <= 108; i++) {
     const r = await cycleData(i);
     console.log(r);
     writeFileSync(`data/cycle-${i}.json`, JSON.stringify(r, null, 2));
